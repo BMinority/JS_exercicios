@@ -1,0 +1,159 @@
+body {
+  background-color: slategray;
+}
+
+header {
+  display: flex;
+  align-items: baseline;
+  color: #fff;
+  justify-content: center;
+}
+
+header i {
+  color:yellow;
+  font-size: 34px;
+  margin-left: 10px;
+}
+
+main {
+  background-color: silver;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+main ol li {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+button {
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: grey;
+  color: #fff;
+}
+
+button:active {
+  background-color: slategray;
+}
+
+/*EXERCÍCIOS*/
+/*exercício 1*/
+#exerc1 {
+  display: flex;
+  flex-direction: column;
+}
+
+input, button {
+  font-size: 18px;
+}
+
+#resultado {
+  background-color: #fff;
+  height: 30px;
+  width: 400px;
+  border-radius: 5px;
+  padding: 3px;
+}
+
+fieldset {
+  border: 2px solid black;
+}
+
+pre {
+  position: fixed;
+  z-index: 9999;
+  top: 2%;
+  left: 10px;
+  width: 95%;
+  display: none;
+  overflow: auto;
+}
+
+pre i {
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  font-size: 24px;
+}
+
+/*exercicio 2*/
+#nomeCompleto {
+  height: 30px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+/*exercício 3*/
+#exibir-verificar {
+  height: 30px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+#exibir-inversao {
+  height: 30px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+#exibir-maior {
+  height: 30px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+#exibir-info-pessoa {
+  height: 90px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+#endereco-pessoa {
+  width: 50%;
+}
+
+#numeros-gerados {
+  height: 100px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+#sequencia-numeros input[type="number"] {
+  width: 50px;
+}
+
+#exibir-soma {
+  height: 30px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+#exibir-pares {
+  height: 30px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 10px;
+}

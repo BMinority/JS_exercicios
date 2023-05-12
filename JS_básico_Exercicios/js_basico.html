@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="js_basico.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <title>Arquivo de treino</title>
+</head>
+<body>
+    <header>
+        <h2>Exercícios de treino para Javascript</h2>
+        <i class="fa-brands fa-square-js"></i>
+    </header>
+
+    <main>
+        <section class="nivel">
+            <h3>Nível básico: </h3>
+            <p>Aprender os fundamentos da linguagem, como variáveis, tipos de dados, operadores, 
+            estruturas condicionais e de repetição, funções e objetos.
+            </p>
+            <br>
+            <h3>Lista de Exercícios:</h3>
+            <ol>
+                <li>
+                    Declare duas variáveis numéricas e faça a soma entre elas.
+                </li>
+                <li>
+                    Declare uma variável do tipo string e faça a concatenação com outra string.
+                </li>
+                <li>
+                    Escreva uma função que receba um número como parâmetro e retorne true se ele for par ou false se for ímpar.
+                </li>
+                <li>
+                    Escreva uma função que receba uma string como parâmetro e retorne a mesma string invertida.
+                </li>
+                <li>
+                    Escreva uma função que receba dois números como parâmetros e retorne o maior deles.
+                </li>
+                <li>
+                    Crie um objeto com informações de uma pessoa, como nome, idade, endereço e telefone.
+                </li>
+                <li>
+                    Escreva uma função que receba um objeto pessoa como parâmetro e retorne uma mensagem de saudação, usando as informações do objeto.
+                </li>
+                <li>
+                    Escreva um programa que imprima os números de 1 a 100. Para múltiplos de três, imprima "Fizz" em vez do número e para múltiplos de cinco, imprima "Buzz". Para números que são múltiplos de três e cinco, imprima "FizzBuzz".
+                </li>
+                <li>
+                    Escreva uma função que receba um array de números como parâmetro e retorne a soma de todos os números do array.
+                </li>
+                <li>
+                    Escreva uma função que receba um array de números como parâmetro e retorne o número de elementos pares que ele contém.
+                </li>
+            </ol>
+        </section>
+
+        <section class="respostas">
+            <h3>Resolução:</h3>
+            <div id="exerc1">
+                <fieldset>
+                    <p title="Declare duas variáveis numéricas e faça a soma entre elas.">
+                        Resposta 1:
+                    </p>
+                        <label for="var1">Variável 1:</label>
+                        <input type="text" id="var1" name="var1">
+                        <p>+</p>
+                        <label for="var2">Variável 2:</label>
+                        <input type="text" id="var2" name="var2">
+                        <button type="button" id="exerc1-btn">Calcular</button>
+                        <p>Resultado:</p>
+                        <div id="resultado">
+                            <!--exibir o resultado-->
+                        </div>
+                        <br>
+                        <div botoes-acao>
+                            <button type="reset" id="limparBtn">Limpar</button>
+                            <button onclick="resposta1()">Exibir resposta</button>
+                        </div>
+                </fieldset>
+                <pre id="resposta1">
+                    <i class="fa-solid fa-square-xmark" id="fechar" onclick="fechar()"></i>
+                    <code class="lg-javascript">
+        //exercício 1
+        const var1Input = document.getElementById('var1');
+        const var2Input = document.getElementById('var2');
+        const resultadoDiv = document.getElementById('resultado');
+        const calcularBtn = document.getElementById('exerc1-btn');
+        const limparBtn = document.getElementById('limparBtn');
+
+        //função para ser executada em evento de click
+        function calcular() {
+            const var1 = Number(var1Input.value);
+            const var2 = Number(var2Input.value);
+
+            const resultado = var1 + var2;
+
+            resultadoDiv.textContent = `O resultado da soma é: ${resultado}`;
+        }
+
+        function limpar() {
+            var1Input.value = '';
+            var2Input.value = '';
+            resultadoDiv.textContent = '';
+        }
+
+        calcularBtn.addEventListener('click', calcular);
+        limparBtn.addEventListener('click', limpar);
+                    </code>
+                </pre>
+            </div>
+
+            <br>
+
+            <div id="exercicio2">
+                <fieldset>
+                    <p title="Declare uma variável do tipo string e faça a concatenação com outra string.">
+                        Resposta 2:
+                    </p>
+                    <label for="nome">Nome: </label>
+                    <input type="text" id="nome" name="nome">
+                    <label for="sobrenome">Sobrenome: </label>
+                    <input type="text" id="sobrenome" name="sobrenome">
+                    <button id="nomeBtn">Ok</button>
+                    <div id="nomeCompleto">
+
+                    </div>
+                    <div botoes-acao>
+                        <button type="reset" id="limparNome">Limpar</button>
+                        <button onclick="resposta2()">Exibir resposta</button>
+                    </div>
+                </fieldset>
+
+                <pre id="resposta2">
+                    <i class="fa-solid fa-square-xmark" id="fechar" onclick="fechar()"></i>
+                    <code class="lg-javascript">
+    //exercício 2
+    const inputNome = document.getElementById('nome');
+    const inputSobNome = document.getElementById('sobrenome');
+    const exibirNome = document.getElementById('nomeCompleto');
+    const juntarNomeBtn = document.getElementById('nomeBtn');
+    const limparNomeBtn = document.getElementById('limparNome');
+    
+    function nomeCompleto() {
+        const nome = inputNome.value;
+        const sobnome = inputSobNome.value;
+    
+        const unirNome = nome + ' ' + sobnome;
+        exibirNome.textContent = `Seu nome é ${unirNome}.`;
+    }
+    
+    function limparNome() {
+        inputNome.value = '';
+        inputSobNome.value = '';
+        exibirNome.textContent = '';
+    }
+    
+    juntarNomeBtn.addEventListener('click', nomeCompleto);
+    limparNomeBtn.addEventListener('click', limparNome);
+                    </code>
+                </pre>
+            </div>
+
+            <br>
+
+            <div id="exercicio3">
+                <fieldset>
+                    <p title="Escreva uma função que receba um número como parâmetro e retorne true se ele for par ou false se for ímpar.">
+                        Resposta 3:
+                    </p>
+                    <label for="numero">Digite um número:</label>
+                    <input type="number" id="numero" name="numero">
+                    <button id="verificar">Verificar</button>
+                    <div id="exibir-verificar">
+
+                    </div>
+                    <div botoes-acao>
+                        <button type="reset" id="limparNumero">Limpar</button>
+                        <button onclick="resposta3()">Exibir resposta</button>
+                    </div>
+                </fieldset>
+
+                <pre id="resposta3">
+                    <i class="fa-solid fa-square-xmark" id="fechar" onclick="fechar()"></i>
+                    <code>
+    //exercício 3                    
+    const numeroInput = document.getElementById('numero');
+    const exibirVerificacao = document.getElementById('exibir-verificar');
+    const verificarBtn = document.getElementById('verificar');
+    const limparNum = document.getElementById('limparNumero');
+    
+    function imparOuPar () {
+        const numero = Number(numeroInput.value);
+        if (numero % 2 === 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    verificarBtn.addEventListener('click', () => {
+        const paridade = imparOuPar();
+        if(paridade) {
+            exibirVerificacao.textContent = `O número ${numeroInput.value} é par.`
+            console.log(true);
+        } else {
+            exibirVerificacao.textContent = `O número ${numeroInput.value} é impar.`
+            console.log(false);
+        }
+    });
+    
+    limparNum.addEventListener('click', () => {
+        numeroInput.value = '';
+        exibirVerificacao.textContent = '';
+    });
+                    </code>
+                </pre>
+            </div>
+
+            <br>
+
+            <div id="exercicio4">
+                <fieldset>
+                    <p title="Escreva uma função que receba uma string como parâmetro e retorne a mesma string invertida.">
+                        Resposta 4:
+                    </p>
+                    <label for="oracao">Digite uma oração:</label>
+                    <input type="text" id="oracao" name="oracao">
+                    <button id="inverterTexto">Inverter</button>
+                    <div id="exibir-inversao">
+
+                    </div>
+                    <div botoes-acao>
+                        <button type="reset" id="limparOracao">Limpar</button>
+                        <button onclick="resposta4()">Exibir resposta</button>
+                    </div>
+                </fieldset>
+
+                <pre id="resposta4">
+                    <i class="fa-solid fa-square-xmark" id="fechar" onclick="fechar()"></i>
+                    <code>
+    //exercício 4                    
+    function inverterString(str) {
+        return str.split("").reverse().join("");
+    }
+    
+    //A função "split()" é usada para dividir a string em um array de caracteres individuais.
+    //A função "reverse()" é usada para inverter a ordem dos caracteres no array.
+    //A função "join()" é usada para juntar os caracteres invertidos em uma string novamente.
+    const botaoInverter = document.getElementById("inverterTexto");
+    const campoTexto = document.getElementById("oracao");
+    const resultadoInversao = document.getElementById("exibir-inversao");
+    const limparOracaoBtn = document.getElementById("limparOracao");
+    
+    botaoInverter.addEventListener("click", function() {
+        const texto = campoTexto.value;
+        const textoInvertido = inverterString(texto);
+        resultadoInversao.textContent = textoInvertido;
+    });
+    
+    limparOracaoBtn.addEventListener('click', () => {
+        campoTexto.value = '';
+        resultadoInversao.textContent = '';
+    });
+                    </code>
+                </pre>
+            </div>
+
+            <br>
+
+            <div id="exercicio5">
+                <fieldset>
+                    <p title="Escreva uma função que receba dois números como parâmetros e retorne o maior deles.">
+                        Resposta 5:
+                    </p>
+                    <label for="numero1">1° numero:</label>
+                    <input type="number" id="numero1" name="numero1">
+                    <label for="numero2">2° numero:</label>
+                    <input type="number" name="numero2" id="numero2">
+                    <button id="maior">Calc. maior</button>
+                    <div id="exibir-maior">
+
+                    </div>
+                    <div botoes-acao>
+                        <button type="reset" id="limparNumeros">Limpar</button>
+                        <button onclick="resposta5()">Exibir resposta</button>
+                    </div>
+                </fieldset>
+
+                <pre id="resposta5">
+                    <i class="fa-solid fa-square-xmark" id="fechar" onclick="fechar()"></i>
+                    <code>
+    //exercício 5
+    const numero1Input = document.getElementById('numero1');
+    const numero2Input = document.getElementById('numero2');
+    const exibirMaiorNumero = document.getElementById('exibir-maior');
+    const limparNumBtn = document.getElementById('limparNumeros');
+    const calcMaiorBtn = document.getElementById('maior');
+    
+    function maiorNumero () {
+        const a = Number(numero1Input.value);
+        const b = Number(numero2Input.value);
+    
+        if(a > b) {
+            exibirMaiorNumero.textContent = `O maior número é ${a}.`;
+        } else {
+            exibirMaiorNumero.textContent = `O maior número é ${b}.`;
+        }
+    }
+    
+    limparNumBtn.addEventListener('click', () => {
+        numero1Input.value = '';
+        numero2Input.value = '';
+        exibirMaiorNumero.textContent = '';
+    });
+    
+    calcMaiorBtn.addEventListener('click', maiorNumero);
+                    </code>
+                </pre>
+            </div>
+
+            <br>
+
+            <div id="exercicio6">
+                <fieldset>
+                    <p title="Crie um objeto com informações de uma pessoa, como nome, idade, endereço e telefone.">
+                        Resposta 6:
+                    </p>
+                    <label for="nome-pessoa">Seu nome:</label>
+                    <input type="text" id="nome-pessoa" name="nome-pessoa">
+                    <label for="cell">Cell:</label>
+                    <input type="tel" name="cell" id="cell">
+                    <button id="salvar-info-pessoa">Salvar</button>
+                    <div id="exibir-info-pessoa">
+
+                    </div>
+                    <div botoes-acao>
+                        <button type="reset" id="limpar-info-pessoa">Limpar</button>
+                        <button onclick="resposta6()">Exibir resposta</button>
+                    </div>
+                </fieldset>
+
+                <pre id="resposta6">
+                    <i class="fa-solid fa-square-xmark" id="fechar" onclick="fechar()"></i>
+                    <code>
+    const nomePessoaInput = document.getElementById("nome-pessoa");
+    const cellPessoaInput = document.getElementById("cell");
+    const salvarInfoPessoaBtn = document.getElementById("salvar-info-pessoa");
+    const exibirInfoPessoa = document.getElementById("exibir-info-pessoa");
+    const limparInfoPessoaBtn = document.getElementById("limpar-info-pessoa");
+    
+    salvarInfoPessoaBtn.addEventListener('click', () => {
+        const nome = nomePessoaInput.value;
+        const cell = cellPessoaInput.value;
+    
+        exibirInfoPessoa.innerHTML = `
+        <ul>
+            <li>Nome: ${nome}</li>
+            <li>Telefone: ${cell}</li>
+        </ul>
+        `;
+    });
+    
+    limparInfoPessoaBtn.addEventListener('click', () => {
+        nomePessoaInput.value = '';
+        cellPessoaInput.value = '';
+        exibirInfoPessoa.innerHTML = '';
+    });
+                    </code>
+                </pre>
+            </div>
+
+            <br>
+
+            <div id="exercicio7">
+                <fieldset>
+                    <p title="Escreva uma função que receba um objeto pessoa como parâmetro e retorne uma mensagem de saudação, usando as informações do objeto.">
+                        Resposta 7:
+                    </p>
+                    <label for="pessoa">Nome:</label>
+                    <input type="text" id="pessoa" name="pessoa">
+                    <label for="email-pessoa">E-mail:</label>
+                    <input type="email" name="email-pessoa" id="email-pessoa">
+                    <br>
+                    <label for="endereco-pessoa">Endereço:</label>
+                    <input type="text" name="endereco-pessoa" id="endereco-pessoa">
+                    <button id="salvar-pessoa">Salvar</button>
+                    <div id="saudacao-pessoa">
+
+                    </div>
+                    <div botoes-acao>
+                        <button type="reset" id="limpar-pessoa">Limpar</button>
+                        <button onclick="resposta7()">Exibir resposta</button>
+                    </div>
+                </fieldset>
+
+                <pre id="resposta7">
+                    <i class="fa-solid fa-square-xmark" id="fechar" onclick="fechar()"></i>
+                    <code>
+    //exercício 7
+    const salvarPessoaBtn = document.getElementById("salvar-pessoa");
+    salvarPessoaBtn.addEventListener('click', () => {
+        const nome = document.getElementById("pessoa");
+        const email = document.getElementById("email-pessoa");
+        const endereco = document.getElementById("endereco-pessoa");
+        const saudacao = document.getElementById("saudacao-pessoa");
+    
+        saudacao.innerHTML = `
+        <h2>Bem-vindo ${nome.value}!</h2>
+        <ul>
+            <li>Seu e-mail é: ${email.value}</li>
+            <li>Seu endereço é: ${endereco.value}</li>
+        </ul>
+        `;
+    });
+    
+    const limparPessoaBtn = document.getElementById("limpar-pessoa");
+    limparPessoaBtn.addEventListener('click', () => {
+        const pessoa = document.getElementById("pessoa");
+        const email = document.getElementById("email-pessoa");
+        const endereco = document.getElementById("endereco-pessoa");
+        const saudacao = document.getElementById("saudacao-pessoa");
+    
+        pessoa.value = '';
+        email.value = '';
+        endereco.value = '';
+        saudacao.innerHTML = '';
+    });
+                    </code>
+                </pre>
+            </div>
+
+            <br>
+
+            <div id="exercicio8">
+                <fieldset>
+                    <p title="Escreva um programa que imprima os números de 1 a 100. Para múltiplos de três, imprima Fizz em vez do número e para múltiplos de cinco, imprima Buzz. Para números que são múltiplos de três e cinco, imprima FizzBuzz.">
+                        Resposta 8:
+                    </p>
+                    <button id="gerar-numeros">Gerar números</button>
+                    <div id="numeros-gerados">
+
+                    </div>
+                    <div botoes-acao>
+                        <button type="reset" id="resetar">Limpar</button>
+                        <button onclick="resposta8()">Exibir resposta</button>
+                    </div>
+                </fieldset>
+
+                <pre id="resposta8">
+                    <i class="fa-solid fa-square-xmark" id="fechar" onclick="fechar()"></i>
+                    <code>
+    function gerarNumeros() {
+        let numeros = "";
+        for (let i = 1; i <= 100; i++) {
+            if (i % 3 == 0 && i % 5 == 0) {
+                numeros += "FizzBuzz";
+            } else if (i % 3 == 0) {
+                numeros += "Fizz";
+            } else if (i % 5 == 0) {
+                numeros += "Buzz";
+            } else {
+                numeros += i + " ";
+            }
+        }
+        document.getElementById("numeros-gerados").innerHTML = numeros;
+    }
+
+    document.getElementById("gerar-numeros").addEventListener("click", gerarNumeros);
+
+    document.getElementById("resetar").addEventListener("click", function() {
+        document.getElementById("numeros-gerados").innerHTML = "";
+    });
+                    </code>
+                </pre>
+            </div>
+
+            <br>
+
+            <div id="exercicio9">
+                <fieldset>
+                    <p title="Escreva uma função que receba um array de números como parâmetro e retorne a soma de todos os números do array.">
+                        Resposta 9:
+                    </p>
+                    <p>
+                        Digite um número em cada espaço reservado abaixo:
+                    </p>
+                    <div id="sequencia-numeros">
+                        <label for="primeiro">1° número</label>
+                        <input type="number" id="primeiro">
+                        <label for="segundo">2° número</label>
+                        <input type="number" id="segundo">
+                        <label for="terceiro">3° número</label>
+                        <input type="number" id="terceiro">
+                    </div>
+                    <button id="somar-numeros">Somar números</button>
+                    <div id="exibir-soma">
+
+                    </div>
+                    <div botoes-acao>
+                        <button type="reset" id="resetar-soma">Limpar</button>
+                        <button onclick="resposta9()">Exibir resposta</button>
+                    </div>
+                </fieldset>
+
+                <pre id="resposta9">
+                    <i class="fa-solid fa-square-xmark" id="fechar" onclick="fechar()"></i>
+                    <code>
+    const buttonSomarNumeros = document.getElementById('somar-numeros');
+    const divExibirSoma = document.getElementById('exibir-soma');
+    
+    buttonSomarNumeros.addEventListener('click', () => {
+        let primeiro = document.getElementById("primeiro");
+        let segundo = document.getElementById("segundo");
+        let terceiro = document.getElementById("terceiro");
+        const numeros = [
+            primeiro.value,
+            segundo.value,
+            terceiro.value
+        ];
+    
+        const soma = numeros.reduce((acumulador, valorAtual) => {
+            return acumulador + parseInt(valorAtual);
+        }, 0);
+    
+        divExibirSoma.innerHTML = `A soma dos números é ${soma}`;
+    });
+    
+    const buttonResetarSoma = document.getElementById('resetar-soma');
+    buttonResetarSoma.addEventListener('click', () => {
+        divExibirSoma.innerHTML = '';
+        primeiro.value = '';
+        segundo.value = '';
+        terceiro.value = '';
+    });
+                    </code>
+                </pre>
+            </div>
+
+            <br>
+
+            <div id="exercicio10">
+                <fieldset>
+                    <p title="Escreva uma função que receba um array de números como parâmetro e retorne o número de elementos pares que ele contém.">
+                        Resposta 10:
+                    </p>
+                    <p>
+                        Digite um número em cada espaço reservado abaixo:
+                    </p>
+                    <p>Insira uma lista de números separados por vírgula:</p>
+                    <input type="text" id="inputArray">
+                    <br>
+                    <button id="contar-pares">Contar Pares</button>
+                    <br>
+                    <div id="exibir-pares">
+
+                    </div>
+                    <div botoes-acao>
+                        <button type="reset" id="limparArray">Limpar</button>
+                        <button onclick="resposta10()">Exibir resposta</button>
+                    </div>
+                </fieldset>
+
+                <pre id="resposta10">
+                    <i class="fa-solid fa-square-xmark" id="fechar" onclick="fechar()"></i>
+                    <code>
+    //exercício 10
+    function contarPares(array) {
+        let count = 0;
+        for (let i = 0; i < array.length; i++) {
+        if (array[i] % 2 === 0) {
+            count++;
+        }
+        }
+        return count;
+    }
+    
+    const inputArray = document.getElementById('inputArray');
+    const exibirPares = document.getElementById('exibir-pares');
+    const contarParesButton = document.getElementById('contar-pares');
+    
+    contarParesButton.addEventListener('click', () => {
+        
+        const numeros = inputArray.value.split(',').map(num => parseInt(num.trim()));
+        
+        const pares = numeros.filter(num => num % 2 === 0);
+        exibirPares.innerHTML = pares.join(', ');
+    });
+    
+    document.getElementById("limparArray").addEventListener('click', () => {
+        inputArray.value = '';
+        exibirPares.innerHTML = '';
+    });
+                    </code>
+                </pre>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
